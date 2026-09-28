@@ -1,0 +1,90 @@
+{
+  "layer": "top",
+  "position": "top", 
+  // "width": 20,
+  "height": 1,
+  
+  "modules-left":   ["custom/launcher", "pulseaudio", "hyprland/language", "wlr/workspaces"],
+  "modules-center": ["hyprland/window"],
+  "modules-right":  ["clock#date", "clock#time", "temperature" ,"battery"],
+
+  "wlr/workspaces": {
+    "on-click": "activate",
+    "format": "{icon}",
+    "format-icons": {
+      "1": "<span color=\"#d8dee9\">一</span>",
+      "2": "<span color=\"#d8dee9\">二</span>",
+      "3": "<span color=\"#d8dee9\">三</span>",
+      "4": "<span color=\"#d8dee9\">四</span>",
+      "5": "<span color=\"#d8dee9\">五</span>",
+      "6": "<span color=\"#d8dee9\">六</span>",
+      "7": "<span color=\"#d8dee9\">七</span>",
+      "8": "<span color=\"#d8dee9\">八</span>",
+      "9": "<span color=\"#d8dee9\">九</span>"
+    }
+},
+
+
+  "clock#time": {
+    "interval": 1,
+    "format": " {:%H:%M:%S}",
+    "tooltip": false
+  },
+
+  "clock#date": {
+    "interval": 10,
+    "format": " {:%e %b}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+  },
+
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-muted": " muted",
+    "scroll-step": 5,
+    "on-click": "pactl set-sink-mute 0 toggle",
+    "format-icons": {
+      "headphone": " ",
+      "hands-free": " ",
+      "headset": " ",
+      "default": ["", "", "墳", " "]
+    }
+  },
+  
+  "battery": {
+    "states": {
+      "warning": 30,
+      "critical": 15
+      },
+    "format": "{icon} {capacity}%",
+    "format-charging": "{capacity}%  ",
+    "format-plugged": "{capacity}%  ",
+    "format-alt": "{time} {icon}",
+    "format-icons": [" ", " ", " ", " ", " "]
+    },
+    "battery#bat2": {
+        "bat": "bat2"
+    },
+
+  "hyprland/window": {
+    "format": " {} ",
+    "max-length": 50
+  },
+
+  "hyprland/language": {
+    "format": " {}",
+    "interval": 1,
+    "format-en": "US",
+    "format-ru": "RU"
+  },
+
+  "temperature": {
+        "critical-threshold": 80,
+        "format": "{icon} {temperatureC}°C",
+        "format-icons": [""]
+    },
+
+  "custom/launcher": {
+    "format": "<span color='#d8dee9'> 本 </span>",
+    "on-click": "wofi -show drun"
+  }
+}
