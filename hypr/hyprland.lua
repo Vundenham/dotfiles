@@ -525,5 +525,7 @@ hl.window_rule({
 hl.on("hyprland.start", function()
     hl.exec_cmd("hyprpaper")
     hl.exec_cmd("waybar")
+    hl.exec_cmd("mako")
+    hl.exec_cmd("~/.config/hypr/scripts/battery-notify.sh")
     hl.exec_cmd("hyprctl plugin load /home/user/.config/hypr/plugins/Hyprspace/Hyprspace.so")
 end)

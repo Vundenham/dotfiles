@@ -1,107 +1,97 @@
-/* General */
+/* ┌─────────────────────────────────────────────┐
+   │  waybar · Nord                              │
+   └─────────────────────────────────────────────┘
+   nord0 #2E3440  nord1 #3B4252  nord2 #434C5E  nord3 #4C566A
+   nord4 #D8DEE9  nord5 #E5E9F0  nord6 #ECEFF4
+   nord7 #8FBCBB  nord8 #88C0D0  nord9 #81A1C1  nord10 #5E81AC
+   nord11 #BF616A nord12 #D08770 nord13 #EBCB8B nord14 #A3BE8C nord15 #B48EAD */
+
+@define-color nord0  #2E3440;
+@define-color nord1  #3B4252;
+@define-color nord2  #434C5E;
+@define-color nord3  #4C566A;
+@define-color nord4  #D8DEE9;
+@define-color nord6  #ECEFF4;
+@define-color nord7  #8FBCBB;
+@define-color nord8  #88C0D0;
+@define-color nord9  #81A1C1;
+@define-color nord11 #BF616A;
+@define-color nord12 #D08770;
+@define-color nord13 #EBCB8B;
+@define-color nord14 #A3BE8C;
+@define-color nord15 #B48EAD;
+
 * {
     font-family: "JetBrainsMono Nerd Font", "Symbols Nerd Font Mono", monospace;
     font-size: 11px;
     min-height: 0;
+    border: none;
+    border-radius: 0;
 }
 
 window#waybar {
-    min-height: 10px;
-    background-color: rgba(20, 20, 20, 0);
-    color: #ffffff;
+    background: transparent;
+    color: @nord4;
 }
 
-/* LEFT */
-.modules-left {
-    background-color: rgba(20, 20, 20, 0.3);
-    border-radius: 10px;
-    margin: 3px 0 3px 6px;
-}
-
-/* CENTER */
-.modules-center {
-    background-color: rgba(20, 20, 20, 0.3);
-    border-radius: 10px;
-    margin: 3px 0;
-}
-
-/* RIGHT */
+/* ── Floating pills ─────────────────────────── */
+.modules-left,
+.modules-center,
 .modules-right {
-    background-color: rgba(20, 20, 20, 0.3);
-    border-radius: 10px;
-    margin: 3px 6px 3px 0;
+    background: alpha(@nord0, 0.92);
+    border: 1px solid alpha(@nord3, 0.8);
+    border-radius: 9px;
+    margin: 4px 0 0 0;
+    padding: 0 4px;
+}
+.modules-left  { margin-left: 10px; }   /* lines up with Hyprland gaps_out */
+.modules-right { margin-right: 10px; }
+
+/* ── Modules ────────────────────────────────── */
+#cpu, #memory, #temperature, #clock, #mpris, #pulseaudio, #battery {
+    padding: 0 9px;
+    color: @nord4;
+    transition: color 150ms ease, background 150ms ease;
 }
 
-/* Module spacing */
-#cpu,
-#memory,
-#custom-gpu,
-#clock,
-#pulseaudio,
-#mpris,
-#custom-power,
-#temperature {
-    padding: 0 10px;
-    margin: 0 2px;
+#cpu:hover, #memory:hover, #temperature:hover, #clock:hover,
+#mpris:hover, #pulseaudio:hover, #battery:hover {
+    color: @nord6;
+    background: alpha(@nord2, 0.6);
+    border-radius: 6px;
 }
 
-/* Power */
-#custom-power {
-    color: #ffffff;
-    font-size: 15px;
-    margin-right: 10px;
-}
+#cpu         { color: @nord8; }
+#memory      { color: @nord9; }
+#temperature { color: @nord7; }
+#temperature.critical { color: @nord11; }
 
-/* MPRIS */
-#mpris {
-    min-width: 0;
-}
-
-/* Clock */
 #clock {
+    color: @nord6;
     font-weight: bold;
 }
 
-/* Temperature */
-#temperature.critical {
-    color: #ff5555;
-}
+#mpris        { color: @nord15; }
+#mpris.paused { color: @nord3; }
 
-/* Tooltip */
+#pulseaudio       { color: @nord8; }
+#pulseaudio.muted { color: @nord3; }
+
+#battery            { color: @nord14; }
+#battery.charging,
+#battery.plugged    { color: @nord8; }
+#battery.warning:not(.charging)  { color: @nord13; }
+#battery.critical:not(.charging) { color: @nord11; }
+
+/* ── Tooltips ───────────────────────────────── */
 tooltip {
-    background-color: rgba(20, 20, 20, 0.4);
-    color: #ffffff;
-    font-weight: bold;
-    border: 1px solid rgba(255, 255, 255, 0);
-    border-radius: 25px;
+    background: alpha(@nord0, 0.96);
+    border: 1px solid @nord3;
+    border-radius: 8px;
 }
 
 tooltip label {
-    color: #ffffff;
+    color: @nord4;
     font-size: 11px;
-    padding: 0;
-    margin: 0;
-}
-
-/* Interactive hover effect */
-#cpu,
-#memory,
-#custom-gpu,
-#temperature,
-#clock,
-#pulseaudio,
-#mpris,
-#custom-power {
-    transition: font-size 0.15s ease;
-}
-
-#cpu:hover,
-#memory:hover,
-#custom-gpu:hover,
-#temperature:hover,
-#clock:hover,
-#pulseaudio:hover,
-#mpris:hover,
-#custom-power:hover {
-    font-size: 14px;
+    padding: 4px 6px;
 }

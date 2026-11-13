@@ -1,0 +1,62 @@
+# btop · Nord (custom)
+# Matches the hyprlock / rofi setup: Frost accents, muted Polar Night frames,
+# usage graphs that run blue → yellow → red as load increases.
+#
+#   nord0 2E3440  nord1 3B4252  nord2 434C5E  nord3 4C566A
+#   nord4 D8DEE9  nord5 E5E9F0  nord6 ECEFF4
+#   nord7 8FBCBB  nord8 88C0D0  nord9 81A1C1  nord10 5E81AC
+#   nord11 BF616A nord12 D08770 nord13 EBCB8B nord14 A3BE8C nord15 B48EAD
+
+# ── Base ───────────────────────────────────────
+theme[main_bg]="#2E3440"
+theme[main_fg]="#D8DEE9"
+theme[title]="#88C0D0"
+theme[hi_fg]="#88C0D0"
+theme[selected_bg]="#434C5E"
+theme[selected_fg]="#ECEFF4"
+theme[inactive_fg]="#4C566A"
+theme[graph_text]="#81A1C1"
+theme[meter_bg]="#3B4252"
+theme[proc_misc]="#88C0D0"
+
+# ── Frames ─────────────────────────────────────
+theme[cpu_box]="#4C566A"
+theme[mem_box]="#4C566A"
+theme[net_box]="#4C566A"
+theme[proc_box]="#4C566A"
+theme[div_line]="#3B4252"
+
+# ── CPU / temperature: calm → hot ──────────────
+theme[cpu_start]="#81A1C1"
+theme[cpu_mid]="#EBCB8B"
+theme[cpu_end]="#BF616A"
+theme[temp_start]="#88C0D0"
+theme[temp_mid]="#EBCB8B"
+theme[temp_end]="#BF616A"
+
+# ── Memory ─────────────────────────────────────
+theme[used_start]="#81A1C1"
+theme[used_mid]="#EBCB8B"
+theme[used_end]="#BF616A"
+theme[available_start]="#A3BE8C"
+theme[available_mid]="#A3BE8C"
+theme[available_end]="#8FBCBB"
+theme[cached_start]="#5E81AC"
+theme[cached_mid]="#81A1C1"
+theme[cached_end]="#88C0D0"
+theme[free_start]="#8FBCBB"
+theme[free_mid]="#88C0D0"
+theme[free_end]="#ECEFF4"
+
+# ── Network ────────────────────────────────────
+theme[download_start]="#5E81AC"
+theme[download_mid]="#88C0D0"
+theme[download_end]="#8FBCBB"
+theme[upload_start]="#B48EAD"
+theme[upload_mid]="#D08770"
+theme[upload_end]="#EBCB8B"
+
+# ── Process list CPU bars ──────────────────────
+theme[process_start]="#81A1C1"
+theme[process_mid]="#EBCB8B"
+theme[process_end]="#BF616A"
